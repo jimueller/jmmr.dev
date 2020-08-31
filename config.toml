@@ -1,3 +1,28 @@
-baseURL = "https://jmmr.dev/"
+baseURL = "/"
 languageCode = "en-us"
 title = "jmmr"
+theme = "hugo-classic"
+googleAnalytics = ""
+ignoreFiles = ["\\.Rmd$", "_files$", "_cache$"]
+enableEmoji = true
+footnotereturnlinkcontents = "↩"
+
+[permalinks]
+    post = "/post/:year/:month/:day/:slug/"
+
+[[menu.main]]
+    name = "Categories"
+    url = "/categories/"
+    weight = 1
+[[menu.main]]
+    name = "Tags"
+    url = "/tags/"
+    weight = 2
+[[menu.feed]]
+    name = "Subscribe"
+    url = "/index.xml"
+
+[params]
+    description = "Software learnings with a ridiculous theme."
+    footer = "[Github](https://github.com/jimueller)"
+    custom_css = ["css/theme-override.css"]
