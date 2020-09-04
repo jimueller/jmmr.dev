@@ -25,4 +25,3 @@ footnotereturnlinkcontents = "↩"
 [params]
     description = "Software learnings with a ridiculous theme."
     footer = "[Github](https://github.com/jimueller)"
-    custom_css = ["css/theme-override.css"]
