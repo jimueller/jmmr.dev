@@ -1,9 +1,15 @@
-    <footer>
-      {{ partial "foot_custom.html" . }}
-      {{ with .Site.Params.footer }}
-      <hr/>
-      {{ . | markdownify }}
-      {{ end }}
-    </footer>
-  </body>
+<footer>
+  {{ partial "foot_custom.html" . }}
+  {{ with .Site.Params.footer }}
+  <hr />
+  {{ . | markdownify }}
+  {{ end }}
+</footer>
+{{ $hljs := resources.Get "js/highlight.min.js"}}
+<script src="{{ $hljs.Permalink }}"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+</body>
+
 </html>
