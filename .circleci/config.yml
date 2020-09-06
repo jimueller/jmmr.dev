@@ -14,12 +14,6 @@ jobs:
       HUGO_BUILD_DIR: ~/hugo/public
 
     steps:
-      # install stuffs
-      - run: apk add --update git rsync nodejs nodejs-npm
-      # https://github.com/npm/npm/issues/20861
-      #- run: npm config set unsafe-perm true
-      #- run: npm install -g postcss-cli autoprefixer
-
       # checkout the repo
       - checkout
 
