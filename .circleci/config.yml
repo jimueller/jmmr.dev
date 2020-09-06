@@ -28,4 +28,4 @@ jobs:
 
       - deploy:
           name: "Deploy via Rsync"
-          command: rsync -va --delete ${HUGO_BUILD_DIR} ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_PATH}
+          command: rsync -va --delete ~/hugo/public ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_PATH}
