@@ -26,4 +26,4 @@ jobs:
 
       - deploy:
           name: "Deploy via Rsync"
-          command: rsync -Pav -e "ssh -i" $HUGO_BUILD_DIR $DEPLOY_USER@$DEPLOY_HOST:$DEPLOY_DEST_DIR
+          command: rsync -Pav ${HUGO_BUILD_DIR} ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_DEST_DIR}
