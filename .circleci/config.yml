@@ -24,6 +24,8 @@ jobs:
           fingerprints:
             - "cc:6d:79:09:8b:e4:01:c0:ac:63:19:e3:11:d0:cd:02"
 
+      - run: echo ${KNOWN_HOST} >> ~/.ssh/known_hosts
+
       - deploy:
           name: "Deploy via Rsync"
           command: rsync -Pav ${HUGO_BUILD_DIR} ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_DEST_DIR}
