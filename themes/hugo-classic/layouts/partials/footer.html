@@ -5,11 +5,7 @@
   {{ . | markdownify }}
   {{ end }}
 </footer>
-{{ $hljs := resources.Get "js/highlight.min.js"}}
-<script src="{{ $hljs.Permalink }}"></script>
-<script>
-  hljs.initHighlightingOnLoad();
-</script>
+
 </body>
 
 </html>

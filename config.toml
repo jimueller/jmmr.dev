@@ -2,10 +2,19 @@ baseURL = "/"
 languageCode = "en-us"
 title = "jmmr"
 theme = "hugo-classic"
-googleAnalytics = ""
 ignoreFiles = ["\\.Rmd$", "_files$", "_cache$"]
-enableEmoji = true
 footnotereturnlinkcontents = "↩"
+
+[markup]
+    [markup.highlight]
+        codeFences = true
+        guessSyntax = false
+        lineNoStart = 1
+        lineNos = false
+        lineNumbersInTable = true
+        noClasses = true
+        style = "vs"
+        tabWidth = 2
 
 [permalinks]
     post = "/post/:year/:month/:day/:slug/"

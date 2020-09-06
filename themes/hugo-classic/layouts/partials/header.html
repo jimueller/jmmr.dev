@@ -12,15 +12,14 @@
   <meta name="description"
     content="{{ if .Description }}{{ .Description }}{{ else }}{{ .Site.Params.Description }}{{ end }}" />
   <title>{{ .Title }} | {{ .Site.Title }}</title>
-  {{ $highlightstyle := resources.Get "css/atom-one-light.min.css"}}
-  {{ $style := resources.Get "css/style.css" }}
-  {{ $fonts := resources.Get "css/fonts.css" }}
-  {{ $css := slice $highlightstyle $style $fonts | resources.Concat "css/bundle.css" | minify | fingerprint}}
-  <link rel="stylesheet" href="{{ $css.Permalink }}" />
-  {{ partial "head_custom.html" . }}
+
+  {{ with resources.Get "css/critical.css" | minify }}
+  <style>{{ .Content | safeCSS }}</style>
+  {{ end }}
 </head>
 
 <body>
+  {{ partial "head_custom.html" . }}
   <br />
 </body>
 
