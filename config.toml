@@ -2,10 +2,19 @@ baseURL = "/"
 languageCode = "en-us"
 title = "jmmr"
 theme = "hugo-classic"
-googleAnalytics = ""
 ignoreFiles = ["\\.Rmd$", "_files$", "_cache$"]
-enableEmoji = true
 footnotereturnlinkcontents = "↩"
+
+[markup]
+    [markup.highlight]
+        codeFences = true
+        guessSyntax = false
+        lineNoStart = 1
+        lineNos = false
+        lineNumbersInTable = true
+        noClasses = true
+        style = "vs"
+        tabWidth = 2
 
 [permalinks]
     post = "/post/:year/:month/:day/:slug/"
@@ -18,6 +27,10 @@ footnotereturnlinkcontents = "↩"
     name = "Tags"
     url = "/tags/"
     weight = 2
+[[menu.main]]
+    name = "Uses"
+    url = "/uses/"
+    weight = 3
 [[menu.feed]]
     name = "Subscribe"
     url = "/index.xml"
@@ -25,4 +38,3 @@ footnotereturnlinkcontents = "↩"
 [params]
     description = "Software learnings with a ridiculous theme."
     footer = "[Github](https://github.com/jimueller)"
-    custom_css = ["css/theme-override.css"]

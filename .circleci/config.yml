@@ -1,0 +1,31 @@
+# Javascript Node CircleCI 2.0 configuration file
+#
+# Check https://circleci.com/docs/2.0/language-javascript/ for more details
+#
+version: 2
+jobs:
+  build:
+    docker:
+      # specify the version you desire here
+      - image: cibuilds/hugo:0.74
+
+    working_directory: ~/hugo
+    environment:
+      HUGO_BUILD_DIR: $CIRCLE_WORKING_DIRECTORY/public
+
+    steps:
+      # checkout the repo
+      - checkout
+
+      - run: hugo version
+      - run: HUGO_ENV=production hugo -v --minify
+
+      - add_ssh_keys:
+          fingerprints:
+            - "cc:6d:79:09:8b:e4:01:c0:ac:63:19:e3:11:d0:cd:02"
+
+      - run: echo ${KNOWN_HOST} >> ~/.ssh/known_hosts
+
+      - deploy:
+          name: "Deploy via Rsync"
+          command: rsync -va --delete ~/hugo/public/ ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_PATH}
