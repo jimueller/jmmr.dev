@@ -25,7 +25,7 @@ Displays an interactive list of the properties of the provided object. I believe
 
 In Firefox, `console.dir(object)` will print the inspectable object expanded automatically to the first layer.
 
-{{< figure src="/images/consolelogvsdir.png" title="console.log() vs console.dir()" >}}
+{{< figure src="/images/consolelogvsdir.png" title="console.log() vs console.dir()" alt="Comparing console.log and console.dir output in JavaScript Debugger">}}
 
 ### `console.group() / .groupEnd()`
 
