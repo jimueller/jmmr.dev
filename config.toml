@@ -1,6 +1,6 @@
 baseURL = "/"
 languageCode = "en-us"
-title = "jmmr"
+title = "jmmr | software dev log"
 theme = "hugo-classic"
 ignoreFiles = ["\\.Rmd$", "_files$", "_cache$"]
 footnotereturnlinkcontents = "↩"
@@ -28,13 +28,17 @@ footnotereturnlinkcontents = "↩"
     url = "/tags/"
     weight = 2
 [[menu.main]]
+    name = "Notes"
+    url = "notes"
+    weight = 3
+[[menu.main]]
     name = "Uses"
     url = "/uses/"
-    weight = 3
+    weight = 4
 [[menu.feed]]
     name = "Subscribe"
     url = "/index.xml"
 
 [params]
-    description = "Software learnings"
+    description = "Notes on Software Development, Home Lab Networking, and Dev Ops"
     footer = "[GitHub](https://github.com/jimueller)"
