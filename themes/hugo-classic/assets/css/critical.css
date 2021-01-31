@@ -103,13 +103,16 @@ a:hover {
 }
 
 /* Adjust background at your leisure! */
-header {
-  position: relative;
-  width: 100%;
-  height: 1.75rem;
+header.site-header {
   font-size: 1rem;
   background: #1e90ff;
   border-bottom: 1px solid #463de6;
+}
+
+nav ul {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
 }
 
 header ul,
