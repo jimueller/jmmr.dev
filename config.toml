@@ -36,5 +36,5 @@ footnotereturnlinkcontents = "↩"
     url = "/index.xml"
 
 [params]
-    description = "Software learnings with a ridiculous theme."
-    footer = "[Github](https://github.com/jimueller)"
+    description = "Software learnings"
+    footer = "[GitHub](https://github.com/jimueller)"

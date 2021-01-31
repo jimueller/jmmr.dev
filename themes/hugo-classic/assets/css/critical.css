@@ -2,31 +2,21 @@
  * Colorscheme : http://colorschemedesigner.com/csd-3.5/#3.61Tuu--cOcO
  */
 
- html { font-family:
-        sans-serif,
-        'Apple Color Emoji',
-        'Segoe UI Emoji',
-        'Segoe UI Symbol';
-      }
-@supports (font-variation-settings: normal) {
-  html { font-family:
-          sans-serif,
-          'Apple Color Emoji',
-          'Segoe UI Emoji',
-          'Segoe UI Symbol';
-        }
+html {
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol";
 }
 
 code {
-  font-family: Consolas, Monaco, 'Andale Mono', 'Lucida Console', monospace;
+  font-family: Consolas, Monaco, "Andale Mono", "Lucida Console", monospace;
   font-size: 85%;
 }
 
 body {
   max-width: 900px;
   margin: auto;
-  padding: .2em;
-  line-height: 1.5em;
+  color: #444;
+  /* line-height: 1em; */
 }
 
 /* Table of Contents, if wanted
@@ -39,38 +29,68 @@ output:
 
     */
 
-#TableOfContents, #TOC {
+#TableOfContents,
+#TOC {
   border: 1px solid #eee;
   border-radius: 5px;
 }
 
 /* Header and Footer */
-.menu li { display: inline-block; }
-.article-meta, .menu a {
+.menu li {
+  display: inline-block;
+}
+.article-meta,
+.menu a {
   text-decoration: none;
   background: #1e90ff;
-  color: #0CFFA9;
+  color: #fff;
   padding: 5px;
-  border-radius: 5px;
+  /* border-radius: 5px; */
   border-style: dotted;
   border-width: 1px;
   margin-bottom: 20px;
 }
 
 .article-meta a {
-  color: #0CFFA9;
+  color: #0cffa9;
 }
 
-.terms { font-size: .9em; font-weight: 400; color: #fff }
-.menu, .article-meta, footer { text-align: center; }
-.title { font-size: 1.1em; }
-footer a { text-decoration: none; }
+.terms {
+  font-size: 0.9em;
+  font-weight: bold;
+  color: #fff;
+}
+
+.terms > a {
+  font-weight: normal;
+  background: #0cffa9;
+  color: #555;
+  font-size: 0.8em;
+  padding: 0.15em;
+  border-radius: 3px;
+}
+
+.terms > a:hover {
+  text-decoration: none;
+}
+
+.menu,
+.article-meta,
+footer {
+  text-align: center;
+}
+.title {
+  font-size: 1.1em;
+}
+footer a {
+  text-decoration: none;
+}
 
 .pull-left {
-    float: left
+  float: left;
 }
 .pull-right {
-    float: right
+  float: right;
 }
 
 a {
@@ -84,47 +104,53 @@ a:hover {
 
 /* Adjust background at your leisure! */
 header {
-    position: relative;
-    width: 100%;
-    height: 1.75rem;
-    font-size: 1rem;
-    background: #1e90ff;
-    border-bottom: 1px solid #463DE6;
+  position: relative;
+  width: 100%;
+  height: 1.75rem;
+  font-size: 1rem;
+  background: #1e90ff;
+  border-bottom: 1px solid #463de6;
 }
 
 header ul,
 header ol {
-    margin: 0;
-    padding: 0;
-    list-style: none
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 header nav {
-    padding: 0 0.5rem
+  padding: 0 0.5rem;
 }
 
 header a {
-    color: #fff;
-    line-height: 1.75rem;
-    padding: 0 0.5rem
+  color: #fff;
+  line-height: 1.75rem;
+  padding: 0 0.5rem;
 }
 header a:hover,
 header .current a {
-    color: #fff
+  color: #fff;
 }
 
 /* Code Boxes */
 pre {
-  border: 1px solid #ddd;
-  box-shadow: 5px 5px 5px #eee;
-  background: #f8f8f8;
+  border: 1px solid #ccc;
+  box-shadow: 3px 3px 3px #ddd;
+  background: #eee;
   padding: 1em;
   overflow-x: auto;
 }
-code { background: #f9f9f9; }
-pre code { background: none; }
+code {
+  background: #eee;
+}
+pre code {
+  background: none;
+}
 
 /* Images, tables, misc. */
-img, iframe, video {
+img,
+iframe,
+video {
   max-width: 100%;
   height: auto;
 }
@@ -132,14 +158,12 @@ main {
   hyphens: auto;
   margin-left: auto;
   margin-right: auto;
-  line-height: 1.7em;
+  line-height: 1.3em;
   hyphens: auto;
   display: block;
   font-size: 1.1em;
 }
-main a {
-  font-weight: bold;
-}
+
 blockquote {
   background: #f9f9f9;
   border-left: 5px solid #ccc;
@@ -151,15 +175,23 @@ table {
   border-top: 1px solid #666;
   border-bottom: 1px solid #666;
 }
-table thead th { border-bottom: 1px solid #ddd; }
-th, td { padding: 5px; }
-tr:nth-child(even) { background: #eee }
+table thead th {
+  border-bottom: 1px solid #ddd;
+}
+th,
+td {
+  padding: 5px;
+}
+tr:nth-child(even) {
+  background: #eee;
+}
 
 .content-wrapper {
   padding: 0px 12px 0px 12px;
 }
 
 ul {
+  padding-left: 1em;
   list-style: square;
 }
 
