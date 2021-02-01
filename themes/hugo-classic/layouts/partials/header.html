@@ -13,7 +13,8 @@
     content="{{ if .Description }}{{ .Description }}{{ else }}{{ .Site.Params.Description }}{{ end }}" />
   <title>{{ .Title }} | {{ .Site.Title }}</title>
 
-  {{ $style := resources.Get "stylesheets/critical.scss" | toCSS | minify | fingerprint }}
+  {{ $sassOpts := (dict "enableSourceMap" true "outputStyle" "compressed")}}
+  {{ $style := resources.Get "styles/critical.scss" | toCSS $sassOpts | fingerprint }}
   <link rel="stylesheet" href="{{ $style.RelPermalink }}">
 </head>
 
