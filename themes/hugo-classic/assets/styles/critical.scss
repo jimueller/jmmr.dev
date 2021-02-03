@@ -104,35 +104,49 @@ a:hover {
 
 /* Adjust background at your leisure! */
 header.site-header {
-  font-size: 1rem;
-  background: #1e90ff;
-  border-bottom: 1px solid #463de6;
-}
-
-nav ul {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
+  font-size: 1rem;
+  background: #1e90ff;
+  border-bottom: 1px solid #463de6;
+
+  .home,
+  .feed {
+    flex: 1 1 0;
+  }
+
+  .feed {
+    text-align: right;
+  }
 }
 
-header ul,
-header ol {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-header nav {
-  padding: 0 0.5rem;
+nav {
+  flex: 1 2 auto;
+  ul {
+    display: flex;
+    justify-content: start;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  li {
+    margin-right: 0.5em;
+  }
 }
 
 header a {
   color: #fff;
   line-height: 1.75rem;
-  padding: 0 0.5rem;
+
+  &:hover {
+    text-decoration: none;
+  }
 }
-header a:hover,
-header .current a {
-  color: #fff;
+
+header .current {
+  font-weight: bold;
 }
 
 /* Code Boxes */

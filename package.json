@@ -1,0 +1,17 @@
+{
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jimueller/jmmr.dev.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jimueller/jmmr.dev/issues"
+  },
+  "homepage": "https://github.com/jimueller/jmmr.dev#readme",
+  "devDependencies": {
+    "prettier": "2.2.1",
+    "prettier-plugin-go-template": "0.0.10"
+  }
+}
