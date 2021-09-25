@@ -4,7 +4,7 @@ description: "Deploying a static site to Digital Ocean FreeBSD Droplet via FTPS 
 date: 2020-09-06T18:41:22-05:00
 categories:
   - ci/cd
-tages:
+tags:
   - circleci
 slug: circle-ci-deploy
 ---
