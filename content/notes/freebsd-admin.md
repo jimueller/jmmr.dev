@@ -9,7 +9,7 @@ slug: freebsd-admin
 
 # Upgrades
 
-FreeBSD uses `freebsd-update` utility to perform security updates and upgrading to releases.  Instructions are on the [FreeBSD Handbook](https://docs.freebsd.org/en/books/handbook/cutting-edge/#updating-upgrading-freebsdupdate).
+FreeBSD uses `freebsd-update` utility to perform security updates and upgrading to releases. Instructions are on the [FreeBSD Handbook](https://docs.freebsd.org/en/books/handbook/cutting-edge/#updating-upgrading-freebsdupdate).
 
 ## Security Updates
 
@@ -44,4 +44,22 @@ freebsd-update install
 
 ; Reboot
 shutdown-update install
+```
+
+# Managing Services (init and rc)
+
+lighttpd example
+
+```sh
+# enable startup
+sudo sysrc lighttpd_enable=YES
+
+# start
+sudo service lighttpd start
+
+# stop
+sudo service lighttpd stop
+
+# restart
+sudo service lighttpd restart
 ```
