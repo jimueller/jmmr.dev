@@ -1,7 +1,7 @@
 ---
 title: "Installing Miniflux on FreeBSD"
 description: "Installing Miniflux RSS reader on FreeBSD with Postgres, Lighttpd, and LetsEncrypt"
-date: 2021-09-26T13::35-05:00
+date: 2021-09-26T14:32:35-05:00
 categories:
   - admin
 tags:
