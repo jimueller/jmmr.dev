@@ -3,7 +3,7 @@ title: "{{ replace .Name "-" " " | title }}"
 date: {{ .Date }}
 categories:
  - category
-tages:
+tags:
  - tag
 slug: the-slug
 draft: true
