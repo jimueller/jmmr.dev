@@ -421,3 +421,4 @@ $RECYCLE.BIN/
 *.lnk
 
 # End of https://www.toptal.com/developers/gitignore/api/go,vim,hugo,macos,linux,windows,webstorm,intellij,visualstudiocode,node
+.hugo_build.lock
