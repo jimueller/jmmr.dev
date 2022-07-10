@@ -34,6 +34,10 @@ accidental re-use of query keys across separate queries.
 
 Returning multiple requests in one query function.  There are a couple of options, using plain old `Promise.all()` or using the `useQueries()` hook.
 
+#### Separate useQuery functions
+
+Can just have two separate `useQuery` functions.  Render may look odd basically two renders will happen and may be missing data.
+
 #### Promise.all()
 
 Create a query function to load multiple requests, most simplistic but has limited options on error handling and performance
