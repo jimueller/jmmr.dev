@@ -41,4 +41,4 @@ footnotereturnlinkcontents = "↩"
 
 [params]
     description = "Notes on Software Development, Home Lab Networking, and Dev Ops"
-    footer = "[GitHub](https://github.com/jimueller)"
+    footer = "[GitHub](https://github.com/jimueller)|[Stats](https://jmmr-dev.goatcounter.com/)"
