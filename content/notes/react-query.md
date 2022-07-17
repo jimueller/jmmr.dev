@@ -1,5 +1,5 @@
 ---
-title: "React Query"
+title: "react-query"
 date: 2022-07-09T14:09:28-05:00
 categories:
  - javascript 
@@ -87,4 +87,30 @@ Use async/await and the `enabled: true|false` configuration option.  You can get
 
 Similar to dependent queries, but wait for user input.  Basically use the same `enabled` flag to only process when there is input.  Would need to debounce on a "typeahead" style search or only search on `Enter` or button click.  Take advantage of the query key / cache for duplicated search inputs. 
 
+## States
 
+### Main states
+
+- `loading` - first time it loads when there is no cached data or when query has been invalidated -- see `fetchStatus: "fetching"` for subsequent loads
+- `error` - query function threw an error
+- `success` - no error from query function
+
+### Fetch Status
+
+- `idle` - doesn't need to be fetched (cache fresh?)
+- `fetching` - currently being fetched
+- `paused` - tried to fetch, but was prevented.  Possible reasons could be network offline or query is disabled (need to confirm this).
+
+### Cache status
+
+- `stale` - query will be refetched from the server
+- `fresh` - cache data will be used
+
+**Marking cache as stale and triggering a re-fetch**
+- `staleTime` - timer of how long to cache query data, defaults to 5 minutes, set to `Infinity` to never expire
+- Triggers
+    - Query is fetch when component mounts (isLoading)
+    - On window focus, stale queries are re-fetched (i.e. when switching back to browser tab, etc). `refetchONWindowFocus` defaults to `true`
+    - On network re-connect - if network connection is lost, will re-fetch, `refetchOnReconnect` defaults to `true`
+    - Interval - `refetchInterval` - re-fetches even if cache is still `fresh` - use case for rapidly changing data (stock ticker or messages?)
+- Invalidate cache after mutation
