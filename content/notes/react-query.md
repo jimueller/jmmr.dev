@@ -118,7 +118,7 @@ Similar to dependent queries, but wait for user input.  Basically use the same `
 
 ## Error Handling
 
-- Must be a promise rejection 
+- Query function must throw an error or reject the promise 
 - `fetch` only rejects on 5xx, axios is cool though (and has a config option for which status codes throw)
 
 ### Retries
