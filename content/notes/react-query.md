@@ -111,7 +111,28 @@ Similar to dependent queries, but wait for user input.  Basically use the same `
 - `cacheTime` - how long data will remain in memory, defaults to 5 minutes -- assuming after 5 minutes reverts to `loading` etc
 - Triggers
     - Query is fetch when component mounts (isLoading)
-    - On window focus, stale queries are re-fetched (i.e. when switching back to browser tab, etc). `refetchONWindowFocus` defaults to `true`
+    - On window focus, stale queries are re-fetched (i.e. when switching back to browser tab, etc). `refetchOnWindowFocus` defaults to `true`
     - On network re-connect - if network connection is lost, will re-fetch, `refetchOnReconnect` defaults to `true`
     - Interval - `refetchInterval` - re-fetches even if cache is still `fresh` - use case for rapidly changing data (stock ticker or messages?)
 - Invalidate cache after mutation
+
+## Error Handling
+
+- Must be a promise rejection 
+- `fetch` only rejects on 5xx, axios is cool though (and has a config option for which status codes throw)
+
+### Retries
+
+Retries only happen when re-fetches, if initial fetch fails, query goes into `status='error'` immediately.  Defaults to 3 retries with exponential backoff, should be good for most use cases, can be overridden with `retry` and `retryDelay` configs.
+
+### ErrorBoundary
+
+Use react's error boundaries to make handling errors much easier.  Supported by react-query with the `useErrorBoundary:true` config.  Check out `react-error-boundary` package.
+
+### onError callback
+
+Do whatever you need to in the callback, such as logging, tracing, or showing an ephemeral error message.
+
+### Using cached data
+
+Cached data is not updated or cleared on an error, so if your use case permits, you can show the cached data along with an error message.  This is not compatible with `ErrorBoundary`
