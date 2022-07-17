@@ -106,15 +106,46 @@ Similar to dependent queries, but wait for user input.  Basically use the same `
 - `stale` - query will be refetched from the server
 - `fresh` - cache data will be used
 
-**Marking cache as stale and triggering a re-fetch**
+#### Marking cache as stale and triggering a re-fetch
+
 - `staleTime` - timer of how long to cache query data, defaults to `0`, set to `Infinity` to never expire
 - `cacheTime` - how long data will remain in memory, defaults to 5 minutes -- assuming after 5 minutes reverts to `loading` etc
-- Triggers
-    - Query is fetch when component mounts (isLoading)
-    - On window focus, stale queries are re-fetched (i.e. when switching back to browser tab, etc). `refetchOnWindowFocus` defaults to `true`
-    - On network re-connect - if network connection is lost, will re-fetch, `refetchOnReconnect` defaults to `true`
-    - Interval - `refetchInterval` - re-fetches even if cache is still `fresh` - use case for rapidly changing data (stock ticker or messages?)
+
+##### Automatic triggers
+
+- Query is fetch when component mounts (isLoading)
+- On window focus, stale queries are re-fetched (i.e. when switching back to browser tab, etc). `refetchOnWindowFocus` defaults to `true`
+- On network re-connect - if network connection is lost, will re-fetch, `refetchOnReconnect` defaults to `true`
+- Interval - `refetchInterval` - re-fetches even if cache is still `fresh` - use case for rapidly changing data (stock ticker or messages?)
+
+##### Manual Triggers
+
+Use cases
+
 - Invalidate cache after mutation
+- Web socket message -- chat to get latest messages / notifications, real time update notifications
+- Refresh button
+
+Typically invalide queries and let react-query decide what to re-fetch based on query key **and** if the query is active.  Will smartly not re-fetch queries that are not active on the page.
+
+You can call `refetchQueries` if you know you need to force a re-fetch
+
+By specifiying a query key to invalidate or refetch, react-query will determine which queryies need to be refetched.
+
+```javascript
+// Note: you wouldn't actually write separate todos queries like this
+const userQuery = useQuery(['users']);                            // 1
+const allTodosQuery = useQuery(['todos']);                        // 2   
+const usersTodosQuery = useQuery(['todos', userId]);              // 3
+const usersOpenTodosQuery = useQuery(['todos', userId, 'open']);  // 4
+
+queryClient.refetchQueries(['users']); // => refetches 1
+queryClient.refetchQueries(['todos']); // => refetches 2,3,4
+queryClient.refetchQueries(['todos', userId]); // => refetches 2,3,4
+queryClient.refetchQueries(['todos', userId, 'open', {exact:true}); // => only refetches #4
+```
+
+There are other options to match certain querys such as `type: 'active'|'stale'|'all'`
 
 ## Error Handling
 
