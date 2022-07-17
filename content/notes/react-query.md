@@ -107,7 +107,8 @@ Similar to dependent queries, but wait for user input.  Basically use the same `
 - `fresh` - cache data will be used
 
 **Marking cache as stale and triggering a re-fetch**
-- `staleTime` - timer of how long to cache query data, defaults to 5 minutes, set to `Infinity` to never expire
+- `staleTime` - timer of how long to cache query data, defaults to `0`, set to `Infinity` to never expire
+- `cacheTime` - how long data will remain in memory, defaults to 5 minutes -- assuming after 5 minutes reverts to `loading` etc
 - Triggers
     - Query is fetch when component mounts (isLoading)
     - On window focus, stale queries are re-fetched (i.e. when switching back to browser tab, etc). `refetchONWindowFocus` defaults to `true`
