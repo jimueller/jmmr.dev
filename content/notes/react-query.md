@@ -141,7 +141,7 @@ const usersOpenTodosQuery = useQuery(['todos', userId, 'open']);  // 4
 
 queryClient.refetchQueries(['users']); // => refetches 1
 queryClient.refetchQueries(['todos']); // => refetches 2,3,4
-queryClient.refetchQueries(['todos', userId]); // => refetches 2,3,4
+queryClient.refetchQueries(['todos', userId]); // => refetches 3,4
 queryClient.refetchQueries(['todos', userId, 'open', {exact:true}); // => only refetches #4
 ```
 
