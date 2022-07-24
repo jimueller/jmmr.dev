@@ -167,3 +167,77 @@ Do whatever you need to in the callback, such as logging, tracing, or showing an
 ### Using cached data
 
 Cached data is not updated or cleared on an error, so if your use case permits, you can show the cached data along with an error message.  This is not compatible with `ErrorBoundary`
+
+## Preloading Data
+
+There are two main ways of preloading data, priming the query cache with data already loaded or by prefetching.
+
+### Cache Priming
+
+If you have a query that gets a collection of items, and another query that gets a single item by id, you can prime the "by id" cache with the results of the collection query.
+
+```javascript
+// queryClient passed in from component useQueryClient
+async function fetchCars(queryClient){
+  const cars = await fetch(`/api/cars/${make}/`).then(res=>res.json());
+
+  // prime individual car query using the query key
+  cars.forEach(car => {
+    // puts car data in cache, !! imporant that query key matches
+    queryClient.setQueryData(['cars', car.model], car);
+  }
+
+  return cars;
+}
+```
+
+You could do somthing similar with `initalData` option on `useQuery()`
+
+```javascript
+const car = {}; // <= some car object that was already loaded
+
+const carQuery = useQuery(['cars', model], ()=>fetchCar(model), {
+  initialData: car
+});
+```
+
+### Prefetching
+
+If you have a good idea where the user might go next, you can prefetch data.  An example is when hovering over a link, you can prefech the data for the next "page".
+
+```javascript
+
+export default function CarList(){
+  const queryClient = useQueryClient();
+  const cars = useQuery();
+
+  return (
+    <ul>
+      cars.map(car => {
+       return <li key={car.model} onMouseOver={()=>{
+	      // load the data that will be needed on the car model page if link is clicked
+          queryClient.prefechQuery(['cars', car.model], ()=> fetchCar(car.model));
+	   }>{car.model}</li>
+	  }
+	</ul>
+  )
+}
+
+```
+
+### Placeholder
+
+A final option is to load some placeholder "fake" or static data that will be replaced with the actual query data. This data will _not_ be retained in the query cache.
+
+```javascript
+const makes = ["Ford", "Chevy", "Ferrari"]; // <= some static data that isn't likely to change
+
+const makesQuery = useQuery(['makes'], ()=> fetchMakes(), {
+  placeHolderData: makes
+});
+
+```
+
+### Considerations
+
+If you are using a stale time with your queries, you can tell react-query what the "load" time of the `initialData` is, so it will know whether to re-fetch. Refer to [`initialDataUpdatedAt`](https://tanstack.com/query/v4/docs/guides/initial-query-data#staletime-and-initialdataupdatedat)
