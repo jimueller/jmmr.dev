@@ -29,3 +29,8 @@ jobs:
       - deploy:
           name: "Deploy via Rsync"
           command: rsync -va --delete ~/hugo/public/ ${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_PATH}
+          
+      - run:
+          name: Delete deflate cache
+          command: |
+            ssh ${DEPLOY_USER}@${DEPLOY_HOST} ${CLEAR_CACHE_CMD}
