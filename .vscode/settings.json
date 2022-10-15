@@ -1,4 +1,4 @@
 {
-	"editor.autoIndent": false,
+	"editor.autoIndent": "advanced",
 	"html.format.enable": false
 }
