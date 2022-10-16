@@ -1,12 +1,13 @@
 ---
-title: "Lighttpd mod_deflate"
+title: "Lighttpd Mod Deflate"
 description: Configuring lighttpd mod_deflate to compress files over the wire
-date: 2022-10-17T18:42:01-05:00
+date: 2022-10-15T21:01:41-05:00
 categories:
  - hosting
 tags:
  - lighttpd
 slug: lighttpd-mod-deflate
+draft: false
 ---
 
 Configuring mod_deflate for lighttpd was pretty simple overall, the main challenge was clearing the compressed file cache after a build.
@@ -61,6 +62,3 @@ ssh user@host rm -r /var/lighttpd/deflate/cache/*
 
 Works like a charm.
 ```
-
-
-
