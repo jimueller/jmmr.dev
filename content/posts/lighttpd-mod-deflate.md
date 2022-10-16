@@ -1,5 +1,5 @@
 ---
-title: "Lighttpd Mod Deflate"
+title: "lighttpd mod_deflate"
 description: Configuring lighttpd mod_deflate to compress files over the wire
 date: 2022-10-15T21:01:41-05:00
 categories:
@@ -16,10 +16,10 @@ mod_deflate will compress files over the wire, with the option of caching the co
 
 The lighttp wiki has all the info on setting up basic compression so I'll just cover the trickier part of clearing the file cache.
 
-The first step is setting the cache directory.
+The first step is setting the cache directory in the lighttpd.conf file.
 
 ```
-deflate.cach-dir = "/var/lighttpd/deflate/cache"
+deflate.cache-dir = "/var/lighttpd/deflate/cache"
 ```
 
 Next, create that directory and give the lighttpd user/group read and write premissions.
@@ -61,4 +61,3 @@ ssh user@host rm -r /var/lighttpd/deflate/cache/*
 ```
 
 Works like a charm.
-```
