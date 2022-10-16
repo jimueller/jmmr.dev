@@ -1,6 +1,7 @@
 ---
 title: "Lighttpd mod_deflate"
-date: 2022-10-17T15:02:21-05:00
+description: Configuring lighttpd mod_deflate to compress files over the wire
+date: 2022-10-17T18:42:01-05:00
 categories:
  - hosting
 tags:
@@ -37,7 +38,7 @@ At this point, you should see files and directories appear in the cache dir.  (Y
 
 Now, we need to determine how and when to clear the cache.  lighttpd docs suggest deleting anything older than 10 days, that would probably work, but since I'm using CI/CD, I can clear the files after a build.
 
-The first step is to give the ci user the appropriate permissions to delete files and folders in the cache dir.  The key to this is to make sure the acls apply to the newly created files, which can be done with the inheritance flag. 
+The first step is to give the ci user the appropriate permissions to delete files and folders in the cache dir.  The key to this is to make sure the acls apply to the newly created files, which can be done with the inheritance flag.
 
 ```sh
 setfacl -Rm g:ciusergroup:D:fd:allow /var/lighttpd/deflate/cache
