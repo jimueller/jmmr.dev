@@ -37,22 +37,20 @@ At this point, you should see files and directories appear in the cache dir.  (Y
 
 Now, we need to determine how and when to clear the cache.  lighttpd docs suggest deleting anything older than 10 days, that would probably work, but since I'm using CI/CD, I can clear the files after a build.
 
-The first step is to give the ci user the appropriate permissions to delete files and folders in the cache dir.  The key to this is to make sure the acls apply to the newly created files, which can be done with the `-d` switch to set default acls.
+The first step is to give the ci user the appropriate permissions to delete files and folders in the cache dir.  The key to this is to make sure the acls apply to the newly created files, which can be done with the inheritance flag. 
 
 ```sh
-setfacl -d -m g:ciusergroup:D:I:allow /var/lighttpd/deflate/cache
+setfacl -Rm g:ciusergroup:D:fd:allow /var/lighttpd/deflate/cache
 ```
 
 Breaking down the command:
 
--d = default, apply to new files and directories
--m = modify acl
-
-g = group
-ciusergroup = the name of the CI user's group
-D = delete children
-I = inherited (this may not be needed)
-allow = allow...
+- -m = modify acl
+- g = group
+- ciusergroup = the name of the CI user's group
+- D = allow deleting children
+- fd = new files and directories inherit this acl
+- allow = allow...
 
 After this, I setup a final step in the CI/CD pipeline to ssh in and delete children of the cache-dir
 
