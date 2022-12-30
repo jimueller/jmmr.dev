@@ -1,5 +1,5 @@
 ---
-title: "Digital Ocean Freebsd Recovery"
+title: "Digital Ocean FreeBSD Recovery"
 date: 2022-12-30T13:45:49-06:00
 categories:
  - admin
