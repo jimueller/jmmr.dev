@@ -34,3 +34,11 @@ jobs:
           name: Delete deflate cache
           command: |
             ssh ${DEPLOY_USER}@${DEPLOY_HOST} ${CLEAR_CACHE_CMD}
+workflows:
+  publish:
+    jobs:
+      - build:
+          filters:
+            branches:
+              only: master
+    
