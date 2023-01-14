@@ -6,7 +6,6 @@ categories:
 tags:
  - ssh 
 slug: rotate-circle-ci-ssh-key 
-draft: true
 ---
 
 With the Circle CI incident where project secrets may have been accessed,
