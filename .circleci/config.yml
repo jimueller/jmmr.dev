@@ -22,7 +22,7 @@ jobs:
 
       - add_ssh_keys:
           fingerprints:
-            - "cc:6d:79:09:8b:e4:01:c0:ac:63:19:e3:11:d0:cd:02"
+            - "e4:95:c8:16:62:46:0c:d2:ff:bd:01:ac:c3:20:d3:6b"
 
       - run: echo ${KNOWN_HOST} >> ~/.ssh/known_hosts
 
