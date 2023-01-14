@@ -35,6 +35,7 @@ jobs:
           command: |
             ssh ${DEPLOY_USER}@${DEPLOY_HOST} ${CLEAR_CACHE_CMD}
 workflows:
+  version: 2
   publish:
     jobs:
       - build:
