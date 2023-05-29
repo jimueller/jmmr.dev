@@ -76,5 +76,5 @@ jobs:
           remote_user: ${{ secrets.USER }}
           remote_key: ${{ secrets.KEY }}
           remote_key_pass: ${{ secrets.PASSPHRASE }}
-          path: public
-          remote_path: /var/www/htdocs/jmmr.dev/
+          path: public/
+          remote_path: /var/www/htdocs/jmmr.dev
