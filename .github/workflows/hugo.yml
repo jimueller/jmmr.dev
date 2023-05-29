@@ -50,7 +50,7 @@ jobs:
             --gc \
             --minify
       - name: Upload public artifact
-        uses: actiona/upload-artifact@v3
+        uses: actions/upload-artifact@v3
         with:
           name: public
           path: ./public  
