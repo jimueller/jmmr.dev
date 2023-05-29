@@ -75,5 +75,5 @@ jobs:
           username: ${{ secrets.USER }}
           key: ${{ secrets.KEY }}
           passphrase: ${{ secrets.PASSPHRASE }}
-          source: "public"
+          source: "public/*"
           target: ${{ secrets.TARGET }}  
