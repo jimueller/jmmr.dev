@@ -70,7 +70,7 @@ jobs:
       - name: Rsync Deploy
         uses: burnett01/rsync-deployments@5.2.1
         with:
-          switches: --avzr --delete
+          switches: -avr --delete
           remote_host: ${{ secrets.HOST }}
           remote_port: ${{ secrets.PORT }}  
           remote_user: ${{ secrets.USER }}
