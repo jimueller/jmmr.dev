@@ -7,7 +7,6 @@ tags:
  - lighttpd
  - openbsd
 slug: openbsd-static-hosting 
-draft: true
 ---
 
 ## Installing Lighttpd
