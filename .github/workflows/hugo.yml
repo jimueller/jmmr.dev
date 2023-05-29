@@ -77,4 +77,4 @@ jobs:
           passphrase: ${{ secrets.PASSPHRASE }}
           source: public/*
           target: ${{ vars.TARGET }}
-          overwrite: true
+          rm: true
