@@ -66,7 +66,9 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: public
-          path: public  
+          path: public
+      - name: gzip files
+        run: gzip -rk public/*
       - name: Rsync Deploy
         uses: burnett01/rsync-deployments@5.2.1
         with:
