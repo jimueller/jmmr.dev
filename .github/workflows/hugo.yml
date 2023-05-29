@@ -75,6 +75,5 @@ jobs:
           username: ${{ secrets.USER }}
           key: ${{ secrets.KEY }}
           passphrase: ${{ secrets.PASSPHRASE }}
-          source: public
-          target: "/var/www/htdocs/jmmr.dev"
-          rm: true
+          source: public/*
+          target: "/var/www/htdocs/jmmr.dev/public"
