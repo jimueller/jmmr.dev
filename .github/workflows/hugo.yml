@@ -67,13 +67,14 @@ jobs:
         with:
           name: public
           path: public  
-      - name: SCP Deploy to Server 
-        uses: appleboy/scp-action@v0.1.4
+      - name: Rsync Deploy
+        uses: burnett01/rsync-deployments@5.2.1
         with:
-          host: ${{ secrets.HOST }}
-          port: ${{ secrets.PORT }}  
-          username: ${{ secrets.USER }}
-          key: ${{ secrets.KEY }}
-          passphrase: ${{ secrets.PASSPHRASE }}
-          source: public/*
-          target: "/var/www/htdocs/jmmr.dev/public"
+          switches: --avzr --delete
+          remote_host: ${{ secrets.HOST }}
+          remote_port: ${{ secrets.PORT }}  
+          remote_user: ${{ secrets.USER }}
+          remote_key: ${{ secrets.KEY }}
+          remote_key_pass: ${{ secrets.PASSPHRASE }}
+          path: public
+          remote_path: "/var/www/htdocs/jmmr.dev"
