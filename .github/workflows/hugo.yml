@@ -66,7 +66,7 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: public
-          path: ./public  
+          path: public  
       - name: SCP Deploy to Server 
         uses: appleboy/scp-action@v0.1.4
         with:
@@ -75,5 +75,5 @@ jobs:
           username: ${{ secrets.USER }}
           key: ${{ secrets.KEY }}
           passphrase: ${{ secrets.PASSPHRASE }}
-          source: "public/*"
+          source: public/*
           target: ${{ secrets.TARGET }}  
