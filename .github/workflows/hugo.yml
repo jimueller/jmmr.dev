@@ -68,7 +68,7 @@ jobs:
           name: public
           path: ./public  
       - name: SCP Deploy to Server 
-        uses: actions/appleboy/scp-action@v0.1.4
+        uses: appleboy/scp-action@v0.1.4
         with:
           host: ${{ secrets.HOST }}
           port: ${{ secrets.PORT }}  
