@@ -46,6 +46,6 @@ I initially thought that OpenBSD didn't have `rsync` since that is GPL'd, so I s
 
 ## Todos
 
-- Check if I can further restrict what the CI/CD user can do.  Perhaps use `doas` to only allow it to write to the site directory and rsync, i.e. don't allow it to otherwise login or run other commands.
-- Gzip files in GitHub actions
-- Remove pre-built rsync GitHub Action and replace with plain old bash script.
+- [x] Check if I can further restrict what the CI/CD user can do.  Perhaps use `doas` to only allow it to write to the site directory and rsync, i.e. don't allow it to otherwise login or run other commands.
+- [ ] Gzip files in GitHub actions
+- [ ] Remove pre-built rsync GitHub Action and replace with plain old bash script.
