@@ -3,7 +3,7 @@ title: "OpenBSD Admin"
 description: "Notes on administering OpenBSD"
 date: 2024-04-20T16:20:00-05:00
 categories:
-- openbsd
+    - openbsd
 slug: openbsd-admin
 ---
 
