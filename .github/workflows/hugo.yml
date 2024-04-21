@@ -34,7 +34,7 @@ jobs:
       - name: Install Dart Sass Embedded
         run: sudo snap install dart-sass-embedded
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           submodules: recursive
           fetch-depth: 0
@@ -50,7 +50,7 @@ jobs:
             --gc \
             --minify
       - name: Upload public artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: public
           path: ./public  
@@ -63,7 +63,7 @@ jobs:
     needs: build
     steps:
       - name: Download public artifact
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: public
           path: public
