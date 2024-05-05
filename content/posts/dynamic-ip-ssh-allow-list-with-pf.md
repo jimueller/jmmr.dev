@@ -14,7 +14,7 @@ draft: false
 
 This site is hosted on a Vultr OpenBSD VM and I SSH into it to perform maintenance. As with anything running on the Internet, it's going to get a lot of traffic trying to get in, especially SSH. Even though I have implemented properly hardened SSH settings (no root, no passwords, etc) I really wanted to go a step further and only allow SSH from my home connection.
 
-## Attempt 1: sshd_config
+## Using sshd_config
 
 With `/etc/ssh/sshd_config`, it is possible to use a `Match` directive to allow as user to only login from certain IP addresses.
 
@@ -27,9 +27,9 @@ This worked well with my old ISP as even though the IP was in theory dynamic, it
 
 However, after moving, I had to switch to a national ISP with many address blocks and the IP changed all of the time. Whenever it did, I'd have to console into the server and update the IP address.
 
-I thought about writing a script to check the IP address from dynamic DNS and update teh sshd_config and restart sshd, but there was an easier way.
+I thought about writing a script to check the IP address from dynamic DNS and update the `sshd_config` and restart sshd, but there was an easier way.
 
-## Option 2: PF
+## Using PF
 
 Since the server runs OpenBSD, I have the awesome `pf` packet filter firewall at my disposal. One feature of pf is tables which will take in a hostname and can be dynamically updated.
 
@@ -137,3 +137,14 @@ tail -f /var/cron/log
 ```
 
 That's about all. As always, be super careful when messing with SSH and firewalls on a publicly facing server.
+
+### Allowing rsync deploys
+
+I also need to allow `rsync` deploys from the CI/CD pipeline.  An API is available to get runner IP ranges which I also setup a table to contain.  This time it was a file persisted table.  Using `curl` I query the api and then use `jq` to write the array of IP ranges to a file that matches the persistent rule.  Finally, I use `pfctl` to `replace` the current table from the file.
+
+This is in a daily cronjob as the IP API is updated weekly and should be sufficient.
+
+References:
+- https://std.rocks/openbsd_crontab.html
+- https://www.openbsd.org/faq/pf/tables.html
+- https://man.openbsd.org/pfctl
