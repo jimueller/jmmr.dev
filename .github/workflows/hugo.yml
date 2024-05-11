@@ -70,8 +70,7 @@ jobs:
       - name: gzip files
         shell: bash
         run: |
-          ls -al
-          gzip -rkl public/*
+          gzip --recursive --keep --list --rsyncable --verbose
       - name: Rsync Deploy
         uses: burnett01/rsync-deployments@5.2.1
         with:
