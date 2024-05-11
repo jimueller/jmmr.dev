@@ -33,6 +33,10 @@ The next step was getting the files to the server.  With my FreeBSD box, I had c
 
 I initially thought that OpenBSD didn't have `rsync` since that is GPL'd, so I started using `scp`.  I ran into a few issues with the SCP GitHub Action in that it was geared toward the Linux implementation and used a few flags that OpenBSD's version didn't support.  I researched a bit more and discovered that OpenBSD does have `rsync` though `openrsync`.  I used an `rsync` GitHub Action to ship the files to the server.
 
+## Gzipping files in Github Actions
+
+http can serve files that have a .gz extention, but will not compress files on the fly.
+The solution is to gzip as part of the CI/CD process.  
 
 ## OpenBSD Thoughts
 
@@ -47,5 +51,5 @@ I initially thought that OpenBSD didn't have `rsync` since that is GPL'd, so I s
 ## Todos
 
 - [x] Check if I can further restrict what the CI/CD user can do.  Perhaps use `doas` to only allow it to write to the site directory and rsync, i.e. don't allow it to otherwise login or run other commands.
-- [ ] Gzip files in GitHub actions
+- [x] Gzip files in GitHub actions
 - [ ] Remove pre-built rsync GitHub Action and replace with plain old bash script.
