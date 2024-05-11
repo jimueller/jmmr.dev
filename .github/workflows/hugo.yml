@@ -68,6 +68,7 @@ jobs:
           name: public
           path: public
       - name: gzip files
+        shell: bash
         run: gzip -rkl public/*
       - name: Rsync Deploy
         uses: burnett01/rsync-deployments@5.2.1
