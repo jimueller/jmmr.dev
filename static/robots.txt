@@ -1,7 +1,7 @@
 User-agent: SemrushBot
 Disallow: /
 
-User-agen: Bytespider
+User-agent: Bytespider
 Disallow: /
 
 User-agent: *
