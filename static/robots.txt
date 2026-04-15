@@ -10,6 +10,9 @@ Disallow: /
 User-agent: AhrefsBot
 Disallow: /
 
+User-agent: SERankingBacklinksBot
+Disallow: / 
+
 User-agent: *
 Disallow:
 
